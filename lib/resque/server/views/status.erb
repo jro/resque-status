@@ -10,6 +10,16 @@
   </div>
   <div class="status-message"><%= @status.message %></div>
   <div class="status-time"><%= @status.time? ? @status.time : 'Not started' %></div>
+
+  <table class="status-dump">
+    <% for key in @status.keys.sort %>
+      <tr>
+        <td><%=h(key)%></td>
+        <td><%=h(@status[key])%></td>
+      </tr>
+    <% end %>
+  </table>
+
 </div>
 
 <script type="text/javascript" charset="utf-8">
