@@ -20,6 +20,12 @@
     <% end %>
   </table>
 
+  <pre>
+    <% for line in Resque::Status.logger(@status.uuid).io.readlines %>
+      <%= h(line) %>
+    <% end %>
+  </pre>
+
 </div>
 
 <script type="text/javascript" charset="utf-8">
