@@ -88,6 +88,13 @@ module Resque
       instance.safe_perform!
       instance
     end
+    
+    # Wrapper API to forward a Resque::Job creation API call into a JobWithStatus call.
+    # This is needed to be used with resque scheduler
+    # http://github.com/bvandenbos/resque-scheduler
+    def self.scheduled(queue, klass, *args)
+      create(args)
+    end
 
     # Wrapper API to forward a Resque::Job creation API call into a JobWithStatus call.
     # This is needed to be used with resque scheduler
