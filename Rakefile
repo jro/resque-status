@@ -10,10 +10,10 @@ begin
     gem.version = Resque::Status::VERSION
     gem.summary = %Q{resque-status is an extension to the resque queue system that provides simple trackable jobs.}
     gem.description = %Q{resque-status is an extension to the resque queue system that provides simple trackable jobs. It provides a Resque::Status class which can set/get the statuses of jobs and a Resque::JobWithStatus class that when subclassed provides easily trackable/killable jobs.}
-    gem.email = "aaron@quirkey.com"
-    gem.homepage = "http://github.com/quirkey/resque-status"
-    gem.rubyforge_project = "quirkey"
-    gem.authors = ["Aaron Quint"]
+    gem.email = "jro@badgerhound.com"
+    gem.homepage = "http://github.com/jro/resque-status"
+    #gem.rubyforge_project = "quirkey"
+    gem.authors = ["Jason Rohwedder","Aaron Quint"]
     gem.add_dependency "uuid", ">=2.0.2"
     gem.add_dependency "resque", ">=1.3.1"
     gem.add_dependency "redisk", ">=0.2.1"
