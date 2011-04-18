@@ -88,19 +88,12 @@ module Resque
       instance.safe_perform!
       instance
     end
-    
-    # Wrapper API to forward a Resque::Job creation API call into a JobWithStatus call.
-    # This is needed to be used with resque scheduler
-    # http://github.com/bvandenbos/resque-scheduler
-    def self.scheduled(queue, klass, *args)
-      create(args)
-    end
 
     # Wrapper API to forward a Resque::Job creation API call into a JobWithStatus call.
     # This is needed to be used with resque scheduler
     # http://github.com/bvandenbos/resque-scheduler
     def self.scheduled(queue, klass, *args)
-      create(args)
+      create(*args)
     end
 
     # Create a new instance with <tt>uuid</tt> and <tt>options</tt>
@@ -149,7 +142,7 @@ module Resque
     end
 
     def name
-      "#{self.class.name}(#{options unless options.empty?})"
+      "#{self.class.name}(#{options.inspect unless options.empty?})"
     end
 
     # Checks against the kill list if this specific job instance should be killed
